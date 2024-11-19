@@ -4,7 +4,7 @@ import { setOpenSidebar } from "../redux/slices/authSlice";
 import { SiHumblebundle } from "react-icons/si";
 import { FaBars } from "react-icons/fa";
 import { MdOutlineSearch } from "react-icons/md";
-import UserAvatar from "./userAvatar";
+import UserAvatar from "./UserAvatar";
 import NotificationPanel from "./NotificationPanel";
 
 const Navbar = () => {
