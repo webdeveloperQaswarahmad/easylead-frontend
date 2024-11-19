@@ -8,7 +8,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       "/api": {
-        target: "http://localhost:8800",
+        target: "https://esaylead-backend-production.up.railway.app",
         changeOrigin:true,
       }
     }
