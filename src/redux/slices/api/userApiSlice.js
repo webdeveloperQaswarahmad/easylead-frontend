@@ -16,6 +16,9 @@ export const userApiSlice = apiSlice.injectEndpoints({
       query: () => ({
         url: `${USER_URL}/get-team`,
         method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
         credentials: "include",
       }),
     }),
@@ -38,6 +41,9 @@ export const userApiSlice = apiSlice.injectEndpoints({
       query: () => ({
         url: `${USER_URL}/notifications`,
         method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
         credentials: "include",
       }),
     }),
