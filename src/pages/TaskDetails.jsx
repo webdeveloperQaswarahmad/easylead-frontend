@@ -234,7 +234,11 @@ const TaskDetails = () => {
           </>
         ) : (
           <>
-            <Activities activity={data?.task?.activities} id={id} refetch={refetch} />
+            <Activities
+              activity={data?.task?.activities}
+              id={id}
+              refetch={refetch}
+            />
           </>
         )}
       </Tabs>
@@ -245,29 +249,26 @@ const TaskDetails = () => {
 const Activities = ({ activity, id, refetch }) => {
   const [selected, setSelected] = useState(act_types[0]);
   const [text, setText] = useState("");
-  console.log(id); // Verify if `id` is defined
-
 
   const [postActivity, { isLoading }] = usePostTaskActivityMutation();
 
   const handleSubmit = async () => {
     try {
-       const activityData = {
-          type: selected?.toLowerCase(),
-          activity: text,
-       };
- 
-       const result = await postActivity({ data: activityData, id }).unwrap();
- 
-       setText("");
-       toast.success(result?.message);
-       refetch();
+      const activityData = {
+        type: selected?.toLowerCase(),
+        activity: text,
+      };
+
+      const result = await postActivity({ data: activityData, id }).unwrap();
+
+      setText("");
+      toast.success(result?.message);
+      refetch();
     } catch (error) {
-       console.error(error);
-       toast.error(error?.data?.message || error.error);
+      console.error(error);
+      toast.error(error?.data?.message || error.error);
     }
- };
- 
+  };
 
   const Card = ({ item }) => {
     return (

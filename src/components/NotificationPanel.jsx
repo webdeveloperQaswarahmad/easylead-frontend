@@ -60,7 +60,6 @@ const NotificationPanel = () => {
   const [selected, setSelected] = useState(null);
 
   const { data, refetch } = useGetNotificationsQuery();
-  console.log('noti',data);
   
   const [markAsRead] = useMarkNotiAsReadMutation();
 
@@ -69,7 +68,6 @@ const NotificationPanel = () => {
     refetch();
   };
   const viewHandler = async (el) => {
-    console.log("Notification clicked:", el); // Check if the function is called
     setSelected(el);
     await readHandler("one", el._id); // Ensure async handling here is working
     setOpen(true); // Update state to show modal

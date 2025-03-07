@@ -7,7 +7,6 @@ import { useCreateSubTaskMutation } from "../../redux/slices/api/taskApiSlice";
 import { toast } from "sonner";
 
 const AddSubTask = ({ open, setOpen, id }) => {
-  console.log("Subtask ID:", id);  // Debugging line
 
   const {
     register,

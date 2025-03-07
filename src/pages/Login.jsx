@@ -24,14 +24,14 @@ const Login = () => {
       const result = await login(data).unwrap();
       dispatch(setCredentials(result));
       navigate("/");
-      console.log(result);
+
     } catch (error) {
       console.log(error);
       toast.error(error?.data?.message || error.message);
     }
   };
-  console.log("user ", user);
 
+  
   useEffect(() => {
     user && navigate("/dashboard");
   }, [user]);

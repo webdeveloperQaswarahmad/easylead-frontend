@@ -4,7 +4,11 @@ import {
   MdKeyboardArrowDown,
   MdKeyboardArrowUp,
   MdKeyboardDoubleArrowUp,
+  MdOutlineChatBubbleOutline,
 } from "react-icons/md";
+import { MdChatBubbleOutline } from "react-icons/md";
+import ChatButton from "../components/ChatButton";
+
 import { LuClipboardEdit } from "react-icons/lu";
 import { FaNewspaper, FaUsers } from "react-icons/fa";
 import { FaArrowsToDot } from "react-icons/fa6";
@@ -16,6 +20,14 @@ import { BGS, getInitials, PRIOTITYSTYELS, TASK_TYPE } from "../utils";
 import UserInfo from "../components/UserInfo";
 import { useGetDashboardStatsQuery } from "../redux/slices/api/taskApiSlice";
 import Loading from "../components/Loader";
+import { RiChat3Line } from "react-icons/ri";
+import { BsChatDots } from "react-icons/bs";
+import {
+  HiOutlineChatBubbleLeft,
+  HiOutlineChatBubbleLeftEllipsis,
+} from "react-icons/hi2";
+import { FiMessageCircle } from "react-icons/fi";
+import ChatPopover from "../components/ChatButton";
 
 const TaskTable = ({ tasks }) => {
   const ICONS = {
@@ -149,7 +161,6 @@ const UserTable = ({ users }) => {
 
 const Dashboard = () => {
   const { data, isLoading, error } = useGetDashboardStatsQuery();
-  console.log("data", data);
 
   if (isLoading) {
     return (
@@ -235,6 +246,8 @@ const Dashboard = () => {
 
         <UserTable users={data?.users} />
       </div>
+     
+     
     </div>
   );
 };

@@ -15,6 +15,8 @@ import { setOpenSidebar } from "./redux/slices/authSlice";
 import { Transition } from "@headlessui/react";
 import { useRef } from "react";
 import { IoClose } from "react-icons/io5";
+import { useGetDashboardStatsQuery } from "./redux/slices/api/taskApiSlice";
+import ChatPopover from "./components/ChatButton";
 
 function Layout() {
   const { user } = useSelector((state) => state.auth);
@@ -89,6 +91,7 @@ const MobileSidebar = () => {
 };
 
 function App() {
+  const { data, isLoading, error } = useGetDashboardStatsQuery();
   return (
     <main className="w-full min-h-screen bg-[#f3f4f6]">
       <Routes>
@@ -105,6 +108,9 @@ function App() {
         </Route>
         <Route path="/log-in" element={<Login />} />
       </Routes>
+      <div>
+        <ChatPopover users={data?.users} />
+      </div>
       <Toaster richColors />
     </main>
   );
